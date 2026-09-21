@@ -1,0 +1,78 @@
+/* Плавный скролл */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Боковые счётчики */
+.side-counter {
+  writing-mode: vertical-rl;
+}
+.side-counter.left-0 {
+  left: 24px;
+}
+.side-counter.right-0 {
+  right: 24px;
+}
+
+/* Свечение зелёным */
+#counter-left, #counter-right {
+  text-shadow: 0 0 8px rgba(74, 222, 128, 0.8),
+               0 0 16px rgba(74, 222, 128, 0.4);
+  transition: all 0.4s ease;
+}
+
+/* Появление секций */
+section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Секция home всегда видима */
+#home {
+  opacity: 1;
+  transform: none;
+}
+
+/* Прогресс-бары навыков */
+.skill-bar {
+  width: 0;
+  transition: width 1.2s ease-out;
+}
+
+/* Кастомный скроллбар */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0e0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #22c55e;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4ade80;
+}
+
+/* Активная ссылка в навбаре */
+.nav-link.active {
+  color: #4ade80;
+}
+
+/* Фон с матрицей */
+#matrix-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.15;              /* приглушённый, чтобы не мешать читать */
+  pointer-events: none;        /* клики проходят сквозь canvas */
+  background: #0a0e0a;
+}
